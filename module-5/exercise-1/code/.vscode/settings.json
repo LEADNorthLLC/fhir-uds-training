@@ -1,0 +1,37 @@
+{
+    "files.associations": {
+    
+        "Dockerfile*": "dockerfile",
+        "iris.script": "objectscript"
+      },
+    "objectscript.conn" :{
+      "ns": "HEALTHTOOLKIT",
+      "active": true,
+      "username": "_SYSTEM",
+      "password": "SYS",
+      "docker-compose": {
+        "service": "iris",
+        "internalPort": 52773
+      },
+      "links": {
+        "IRIS SQL Portal": "http://${host}:${port}/csp/sys/exp/%25CSP.UI.Portal.SQL.Home.zen?$NAMESPACE=${ns}"
+      }
+    },
+    "sqltools.connections": [
+    
+      {
+        "askForPassword": false,
+        "connectionMethod": "Server and Port",
+        "driver": "InterSystems IRIS",
+        "name": "FHIR",
+        "namespace": "FHIRSERVER",
+        "password": "SYS",
+        "port": 32783,
+        "previewLimit": 50,
+        "server": "localhost",
+        "showSystem": false,
+        "username": "SuperUser"
+      }
+    ]
+
+}
