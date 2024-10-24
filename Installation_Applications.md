@@ -65,6 +65,9 @@ These extensions are necessary for working with FHIR resources and Docker in VSC
      [FHIR Tools Extension](https://marketplace.visualstudio.com/items?itemName=Yannick-Lagger.vscode-fhir-tools)
    - **FHIR JSON Tooling**  
      [FHIR JSON Tooling Extension](https://marketplace.visualstudio.com/items?itemName=cqframework.fhir-json)
+   - **Docker Tools**  
+     [Docker Tools Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+     
 
 ---
 
@@ -90,18 +93,13 @@ Follow the link below and download the latest installer for your platform, Windo
 
 ## 6. Run the Training IRIS Instance in Docker
 
+Using the VSCode Docker extension we can run our docker container through VSCode.
 
-If you get the following error in the terminal, Docker is not running. Make sure to start up Docker Desktop and run again. 
+Open the iris-container folder. Find and right click the docker-compose.yml file. We have inculded a screenshot to help you find it.
 
-```bash
- Executing task: docker compose -f "docker-compose.yml" up -d --build 
+![alt text](docker-compose.png)
 
-error during connect: Get "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.46/containers/json?all=1&filters=%7B%22label%22%3A%7B%22com.docker.compose.config-hash%22%3Atrue%2C%22com.docker.compose.project%3Diris-healthtoolkit-service%22%3Atrue%7D%7D": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
-
- *  The terminal process "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -Command docker compose -f "docker-compose.yml" up -d --build" terminated with exit code: 1. 
- *  Terminal will be reused by tasks, press any key to close it. 
-
-```
+Then at the bottom of the pop up you should click Compose Up.
 
 You can then access healthshare with the following link
    
