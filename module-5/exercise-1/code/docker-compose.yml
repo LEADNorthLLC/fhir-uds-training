@@ -16,3 +16,4 @@ services:
       - 32784:53773
     volumes:
       - ./:/irisdev/app
+      - ./data:/usr/irissys
