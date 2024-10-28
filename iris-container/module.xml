@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="health-toolkit.ZPM">
+  <Document name="fhir-demo.ZPM">
     <Module>
-      <Name>health-toolkit</Name>
+      <Name>fhir-demo</Name>
       <Version>1.0.3</Version>
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="HealthToolKit.PKG"/>
       <Resource Name="HEALTHTOOLKITPKG.PKG"/>
+      <Resource Name="FHIRDEMO.PKG"/>
+      <Resource Name="FHIRDEMOPKG.PKG"/>
       <Dependencies>
         <ModuleReference>
           <Name>swagger-ui</Name>
@@ -47,19 +49,31 @@
         UseCookies="2"
         CookiePath="/api/custom"
       />
-    <Invoke Class="HealthToolKit.Install" Method="Run">
-    </Invoke>
-    <FileCopy Name="misc/HS.SDA3.xsd" Target="${libdir}"/>
-    <FileCopy Name="misc/swagger.yml" Target="${cspdir}swagger-ui/"/>
-    <Invoke Class="EnsLib.EDI.XML.SchemaXSD" Method="Import">
+      <Invoke Class="HealthToolKit.Install" Method="Run">
+      </Invoke>
+      <Invoke Class="FHIRDEMO.Install" Method="setup">
+      </Invoke>
+      <FileCopy Name="misc/HS.SDA3.xsd" Target="${libdir}"/>
+      <FileCopy Name="misc/swagger.yml" Target="${cspdir}swagger-ui/"/>
+      <Invoke Class="EnsLib.EDI.XML.SchemaXSD" Method="Import">
          <Arg>${libdir}/HS.SDA3.xsd</Arg>
-    </Invoke>
-
-    <Invoke Class="Ens.Director" Method="SetAutoStart" CheckStatus="true">
+      </Invoke>
+      <Compile Class="HEALTHTOOLKITPKG.FoundationProduction" Flags="ckb" IgnoreErrors="0" />
+      <Invoke Class="Ens.Director" Method="SetAutoStart" CheckStatus="true">
         <Arg Value="${MyNamespace}" />
         <Arg Value="HEALTHTOOLKITPKG.FoundationProduction"/>
-    </Invoke>
-
+      </Invoke>
+      <Invoke Class="Ens.Director" Method="StartProduction" CheckStatus="1" >
+        <Arg name ="ProductionName" Value="HEALTHTOOLKITPKG.FoundationProduction"/>
+      </Invoke>
+      <Compile Class="FHIRDEMOPKG.FoundationProduction" Flags="ckb" IgnoreErrors="0" />
+      <Invoke Class="Ens.Director" Method="SetAutoStart" CheckStatus="true">
+        <Arg Value="${MyNamespace}" />
+        <Arg Value="FHIRDEMOPKG.FoundationProduction"/>
+      </Invoke>
+       <Invoke Class="Ens.Director" Method="StartProduction" CheckStatus="1" >
+        <Arg name ="ProductionName" Value="FHIRDEMOPKG.FoundationProduction"/>
+       </Invoke>
     </Module>
     
   </Document>
