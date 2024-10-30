@@ -11,7 +11,7 @@
 
 Ensure your container is running or refer back to Module 5: Exercise 1.
 
-**Load Necessary Code:** From the IRIS System Management Portal, navigate to System Explorer -> Classes.  Select Import and choose 
+**Load Necessary Code:** From the IRIS System Management Portal, navigate to System Explorer -> Classes.  Select Import and choose **My Local Machine** and click on Browse to locate all files found under the /irisdata/module6-exercise1-code/ folder. Make sure File of type is set to All Files (*) so you can see all the files available to select.  Once all files are selected, choose Next and then Import. The code should all compile without errors.
 
 From the IRIS System Management Portal, open the FHIRDEMO Production by navigating to Interoperability -> Configure -> Production from the **FHIRDEMO** namespace.  Execute the following steps:
 
@@ -96,7 +96,7 @@ Configure the following Settings.
 | TargetConfigNames | HS.FHIRServer.Interop.Operation |
 | TransmissionMode | transaction |
 | FHIRMetadataSet | HL7v40 / FHIR R4 Core Specification |
-| FHIREndpoint* | /csp/healthshare/fhirdemo/fhir/r4 |
+| FHIREndpoint* | /csp/healthshare/fhirdemo/fhir/r4/ |   <-- don't forget the final slash in this path!
 | LogTraceEvents | *checked* |
 | TraceOperations | `*FULL*` |
 
@@ -104,23 +104,16 @@ Configure the following Settings.
 
 Make sure to click **Apply** to save your Settings. 
 
-*5-4*. Click on the icon/name for the **HS.FHIRServer.Interop.Operation** Operation. 
-
-Configure the following Settings.   
-
-| **Property Name**  | **Value** |
-|:-----------------------:|:---------:|
-| TransmissionMode | transaction |
-| FHIRMetadataSet | HL7v40 / FHIR R4 Core Specification |
-| FHIREndpoint* | /csp/healthshare/fhirdemo/fhir/r4 |
-| LogTraceEvents | *checked* |
-| TraceOperations | `*FULL*` |
-
-Make sure to click **Apply** to save your Settings. 
-
 6. **Add the Trace Logging Operation** 
 
-Click on the `+` on the Operations header to the right and add `HS.Util.Trace.Operations` as the Class name and Operation name. Select `Enable` and **Apply**. 
+| **Configuration Name**  | **Value** |
+|:-----------------------:|:---------:|
+| Operation Class | HS.Util.Trace.Operations |
+| Operation Name | HS.Util.Trace.Operations |
+| Display Category | Module6-Exercise1 |
+| Enable Now | Selected |
+
+Make sure to click **Apply** to save your Settings. 
 
 7. **Configure the FHIR Server**
 
@@ -147,7 +140,7 @@ Configure the following Settings.
 
 Click **Add**. It will take a few minutes to build the endpoint. You can leave this screen and return to VSCode while the endpoint builds. 
 
-8. **Create the data iput directory in VS Code**
+8. **Create the data input directory in VS Code**
 
 Typically, the file system in the Docker container is completely separate from the folders and files you have in the project folder. However, the container has been set up with a bind mount that connects the `iris-container/data/durable` folder in the FHIR-UDS-TRAINING project with the `/irisdata` folder in the IRIS instance. 
 
@@ -163,17 +156,17 @@ Your folders will look like this (Don't worry if the top-level name is more deta
 
 You will see the file copied into the directory and then it may disappear. This is good news. The inbound file service running in IRIS has picked it up and attempted to process it. 
 
-9. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile for the `_system` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
+9. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile for the `_System` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
 
-Go to **Home -> Interoperability -> Select FHIRDEMO -> Configuration -> Production**. 
+Go to **Home -> Interoperability -> Select FHIRDEMO -> Configure -> Production**. 
 
 Click on the **Messages** tab. You should see the available message traces. Click on the link under **Header** to trace the activity. 
 
-If you see errors, read the error messages, doouble check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again like you did in **Step 14**.
+If you see errors, read the error messages, doouble check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again like you did in **Step 8-2**.
 
 10. **Review the Message Trace:**
 
-If everything has gone well, Step 5 of the trace will show the actual FHIR bundle that was sent to the local FHIR Server. 
+If everything has gone well, Step 3 of the trace will show the actual FHIR bundle that was sent to the local FHIR Server. 
 
 ![FHIR Message Trace](../images/module6-1-message-trace.png)
 
@@ -183,7 +176,7 @@ If everything has gone well, Step 5 of the trace will show the actual FHIR bundl
 
 > This is a good technique for testing, but should be turned off once the interface is in production as FHIR bundles can get very big.
 
-Click on Step 5 and on `View Raw =Contents`. Copy the JSON string in the **<ItemValue>** tags, but do not include the tag. 
+Click on Step 3 and on `View Raw =Contents`. Copy the JSON string in the **<ItemValue>** tags, but do not include the XML tag. 
 
 13. Go to the FHIR validator at [FHIR Validator](https://validator.fhir.org). 
 
