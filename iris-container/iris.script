@@ -2,42 +2,13 @@ ROUTINE iris
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-
     zn "HSLIB"
-    Do ##class(HS.Util.Installer.Foundation).Install("HEALTHTOOLKIT")
-    zn "HEALTHTOOLKIT"
+    Do ##class(HS.Util.Installer.Foundation).Install("FHIRDEMO")
+    zn "FHIRDEMO"
 
-    // Load the application code
-    zpm "load /opt/irisapp -v"
-
-    set productionName = "HEALTHTOOLKITPKG.FoundationProduction"
-    set ^Ens.Configuration("csp","LastProduction") = productionName
-    do ##class(Ens.Director).SetAutoStart(productionName)
-    If $$$ISOK(status) {
-        Write "Foundation production installed successfully.", !
-    } Else {
-        Write "Error during installation: ", $System.Status.DisplayError(status), !
-    }
-
-    ; zpm install openapi class definiton
-    zpm "install swagger-ui"
-
-    zn "HSLIB"
-    //Install a Foundation 
-    Set namespace = "FHIRDEMO"
-    Set databaseDir = "/irisdata/mgr/"
-    Set productionName = "FHIRDEMOPKG.FoundationProduction"
-    set networkName = "localhost"
-
-    /// Define a property array for custom variables
-    Set pVars("DBInstallDirectory") = databaseDir
-    Set pVars("HOSTNAME")=networkName
-    Set pVars("Component")=networkName_":"_namespace
+    zpm "load /irisdev/app -v"
     
-
-    /// Call the Foundation installer
-    Set status = ##class(HS.Util.Installer.Foundation).Install(namespace, .pVars)
-    zn namespace
+    set productionName = "FHIRDEMOPKG.FoundationProduction"
     set ^Ens.Configuration("csp","LastProduction") = productionName
     do ##class(Ens.Director).SetAutoStart(productionName)
     If $$$ISOK(status) {
@@ -45,4 +16,5 @@ ROUTINE iris
     } Else {
         Write "Error during installation: ", $System.Status.DisplayError(status), !
     }
+   
 halt

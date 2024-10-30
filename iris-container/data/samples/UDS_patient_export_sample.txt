@@ -1,0 +1,21 @@
+Id|Race|Ethnicity|BirthSex|BirthDate|GenderIdentity|AgricultureStatus|HousingStatus|VeteranStatus|Deceased
+1|White|Hispanic|M|19900102|Male|migratory|homeless-shelter||0
+2|Asian|Not Hispanic|F|19850815|Female||transitional||1
+3|Black|Hispanic|M|19741211|Male|seasonal|doubling-up||0
+4|White|Not Hispanic|F|19981224|Female||street||1
+5|Pacific Islander|Hispanic|M|20021030|Non-binary|migratory|permanent-supportive-housing||0
+6|White|Not Hispanic|F|19660722|Female||other||1
+7|Black|Hispanic|M|19930509|Male|seasonal|unknown||0
+8|Asian|Not Hispanic|F|20010914|Female||homeless-shelter||0
+9|Black|Not Hispanic|M|19791102|Male|migratory|transitional||1
+10|White|Hispanic|F|19560820|Female|seasonal|doubling-up||0
+11|Pacific Islander|Not Hispanic|M|19841205|Male|migratory|street||1
+12|White|Not Hispanic|F|19720312|Female||permanent-supportive-housing||0
+13|Asian|Hispanic|M|19970719|Male|seasonal|other||0
+14|Black|Not Hispanic|F|20050127|Female||unknown||0
+15|White|Hispanic|M|19831118|Male||homeless-shelter||1
+16|Pacific Islander|Not Hispanic|F|19760514|Female|migratory|transitional||0
+17|Black|Hispanic|M|19990603|Non-binary|seasonal|doubling-up||1
+18|White|Not Hispanic|F|19600325|Female||street||0
+19|Asian|Hispanic|M|19540216|Male||permanent-supportive-housing||1
+20|Black|Not Hispanic|F|19711209|Female|migratory|other||0
