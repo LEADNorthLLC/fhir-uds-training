@@ -9,23 +9,11 @@
 * Read a FHIR message trace
 * Validate a FHIR Bundle using FHIR Vaildator
 
-# Start the Docker Container 
+Ensure your container is running or refer back to Module 5: Exercise 1.
 
-1. Start the docker instance by right clicking on the `docker-compose.yml` file located in the `iris-container` folder. Click on the file name and select `Compose Restart` to stop and start the Docker container. 
+From the IRIS System Management Portal, open the FHIRDEMO Production by navigating to Interoperability -> Configure -> Production from the **FHIRDEMO** namespace.  Execute the following steps:
 
-This can also be done from the terminal with the following command:
-```bash
-	docker-compose up --build -d
-```
-This command will take a few moments to run.
-
-2. Once your container is running you can now access the IRIS portal at the following url:
-
-	http://localhost:32783/csp/sys/UtilHome.csp
-
-3. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** now. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
-
-4. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
+1. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
 
 Configure these **Business Service** settings in the wizard: 
 
