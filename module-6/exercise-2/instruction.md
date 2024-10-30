@@ -42,7 +42,7 @@ First set the location of the custom DTL library
 5. To check if a custom DTL package already exists, enter:
 
 ```
- 	Write ##class(HS.FHIR.DTL.Util.API.ExecDefinition).GetCustomDTLPackage()
+ 	write ##class(HS.FHIR.DTL.Util.API.ExecDefinition).GetCustomDTLPackage()
 ```
 
 6. If the custom DTL package does not already exist, the above code will return null.  To set the package, enter the following command which designates **HS.Local.FHIR.DTL** as the name of your custom DTL package:
@@ -53,20 +53,20 @@ First set the location of the custom DTL library
 7. To check that the package was defined successfully, enter:
 
 ```
- write status
+ 	write status
 ```
 
 The response should be: 1 which means the processing was successful. You have set your custom DTL package. The FHIR processes will automatically give precedence to any versions of the DTL transforms located under **HS.Local** in the **FHIRDEMO** namespace. 
 
 ## Modifying the DTL Transformation Code
 
-1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**
+1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the InterSystems Server Manager extension via the "I" icon on the left hand bar, going to the Explorer area (ensure you are connected to the server) and navigating the classes.  If you aren't connected to the server, please refer back to Module 5: Exercise 1.
 
 2. Click on **Save As** to copy the **HS.FHIR.DTL.SDA3.vR4.Patient.Patient** class to a new class called: **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient**. The naming is important here as the FHIR base code will give this custom class precedence over the out-of-the-box transform. 
 
 ![Save Local Patient Resource DTL](../images/module6-2-save-resource-as.png)
 
-3. Create a Sub-transform to do the work of mapping the extension. 
+3. Create a sub-transform to do the work of mapping the extension. 
 
 From the Data Transformation Builder, open **HS.FHIR.DTL.SDA3.vR4.Address.Extension** as a model of an extension mapping. 
 
@@ -131,12 +131,10 @@ Now you are validating against the UDS+ IG as well! Isn't FHIR fun?
 
 **Summary:** We muscled in a change just to see it take effect and start the testing and validation cycle. There's work ahead to complete the full mapping and make sure it conforms, but hopefully this exercise has given you a good idea of how to accomplish this task using the tools available.  
 
-> DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. 
-
 ## To Save the Production: 
 
 You can copy the contents of the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient** and the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.AgeExtension** class to the **FHIR-UDS-TRAINING/src/FHIRDEMO** folder via Cache Studio or Visual Studio Code.  
 
-> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. When you want to restart it, select **Compose - Up**. It will start up much faster than when you select **Compose - Restart** however all your coding and configuration changes will be reset. 
+> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down without losing your changes, you can stop and start the container via Docker desktop. > DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. 
 
 > Solution: There is a completed production class saved in the [Module 6 Solutions Folder](../solutions/exercise-2). This contains the production configuration, but does not contain the FHIR Server configuration.
