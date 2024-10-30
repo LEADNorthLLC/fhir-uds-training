@@ -52,3 +52,31 @@ Here is a screenshot showing the commands:
 ![Terminal commands](../images/module5-open-iris-terminal.png)
 
 Save the above command somewhere handy for later reference.
+
+## Configure InterSystems Server Extension
+
+Click on the "Extensions" icon (looks like building blocks) on the left side bar of Visual Studio Code.  
+Select InterSystems Server Manager.
+Click on the gear icon and choose "Settings".
+Click on the link to "Edit in settings.json".
+At the top of the file, under the opening curly brace, insert:
+
+```
+"intersystems.servers": {
+    
+        "local": {
+            "webServer": {
+                "scheme": "http",
+                "host": "localhost",
+                "port": 32783
+            },
+            "username": "_System"
+        }
+    },
+```
+Access the File menu and choose Save.
+Now, choose the "I" or Intersystems icon from the left side bar.
+Under the Explorer area of the screen, click on the button labelled "Choose Server and Namespace."
+Choose "fhir-uds-training-main".
+Choose "local" if prompted, choose the "FHIRDEMO" namespace and login with _System/SYS if prompted.
+You will now be able to navigate "server-side" code that is present for this instance.

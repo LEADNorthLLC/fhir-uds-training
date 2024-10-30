@@ -1,4 +1,6 @@
-# Module 6 Exercise 2 - Creating a Custom DTL #
+# Module 6: Exercise 2
+
+# Creating a Custom DTL
 
 **Learning Objective:** 
 * Identify the location of standard DTLs
@@ -25,60 +27,46 @@
 **Requirements:**
 Calculate the age *value* by taking the current year and subtracting the year sent in the **source.birthTime** field in the SDA. You will hardcode the other values in the extension.  
 
-## Setting up Custom Transformation
+## Setting up a Custom Transformation Package
 First set the location of the custom DTL library
 
-1. Open the InterSystems Terminal from VS Code. First make sure the Docker container is running. Open a Terminal by going to **View Menu -> Terminal**
+1. First make sure the Docker container is running.
+2. From Visual Studio Code, open Terminal by going to **View Menu -> Terminal**
+3. Open an IRIS terminal session (if you don't remember how to do this refer back to Module 5: Exercise 1). Log in with the `_system/SYS` user/password.
+4. Change to **FHIRDEMO** namespace:
 
-2. This opens the Terminal window at the bottom of the project. (It may already be open). 
-* Find the `+` sign with the pull down. 
-* Select `Git Bash` as the terminal type. 
-* Type `docker ps` to figure out the name of the container. In this case `iris-container-1`
-* Once you have the name, type this command to start the shell. You will be looking at the internal Docker file system: 
-
-```bash
-	docker exec -it **iris container name** bash
 ```
-* From the new command prompt, open IRIS terminal by typing: `iris session IRIS`
-* Log in with the `_system/SYS` user/password
-
-Here is a screenshot showing the commands: 
-![Terminal commands](../images/module6-2-open-iris-terminal.png)
-
-3. Change to **FHIRDEMO** namespace:
-
-```bash
-	set $namespace = "FHIRDEMO"
+	ZN "FHIRDEMO"
 ```
 
-4. To check if a custom DTL package already exists, enter:
+5. To check if a custom DTL package already exists, enter:
 
-```bash
- 	Write ##class(HS.FHIR.DTL.Util.API.ExecDefinition).GetCustomDTLPackage()
+```
+ 	write ##class(HS.FHIR.DTL.Util.API.ExecDefinition).GetCustomDTLPackage()
 ```
 
-5. If the custom DTL package does not already exist, enter the following command which designates **HS.Local.FHIR.DTL** as the name of your custom DTL package:
-```bash
+6. If the custom DTL package does not already exist, the above code will return null.  To set the package, enter the following command which designates **HS.Local.FHIR.DTL** as the name of your custom DTL package:
+```
  	set status = ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
 ```
 
-6. To check that the package was defined successfully, enter:
+7. To check that the package was defined successfully, enter:
 
-```bash
- write status
+```
+ 	write status
 ```
 
-The response should be: 1 which means the process was successful. You have set your custom DTL package. The FHIR processes will automatically give precedence to any versions of the DTL transforms located **HS.Local** in the **FHIRDEMO** namespace. 
+The response should be: 1 which means the processing was successful. You have set your custom DTL package. The FHIR processes will automatically give precedence to any versions of the DTL transforms located under **HS.Local** in the **FHIRDEMO** namespace. 
 
 ## Modifying the DTL Transformation Code
 
-1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**
+1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the System Management Portal -> Interoperability -> Build -> Data Transformations and clicking Open
 
 2. Click on **Save As** to copy the **HS.FHIR.DTL.SDA3.vR4.Patient.Patient** class to a new class called: **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient**. The naming is important here as the FHIR base code will give this custom class precedence over the out-of-the-box transform. 
 
 ![Save Local Patient Resource DTL](../images/module6-2-save-resource-as.png)
 
-3. Create a Sub-transform to do the work of mapping the extension. 
+3. Create a sub-transform to do the work of mapping the extension. 
 
 From the Data Transformation Builder, open **HS.FHIR.DTL.SDA3.vR4.Address.Extension** as a model of an extension mapping. 
 
@@ -120,6 +108,14 @@ Save and Compile When done.
 2. Check in the **Message Trace** to ensure there were no errors. Review the output FHIR bundle or transaction to confirm that the update took effect. 
 3. Troubleshoot the mapping as needed. 
 
+## Alternate Path
+You can also still call the full original "standard" DTL class without having to maintain a full copy of its code in your new custom DTL.  So, for instance, if you want to only add one change, you can do the following which executes the standard class and then add your change afterwards in the DTL:
+```
+<assign property='status' value='##class(HS.FHIR.DTL.Util.Execute).ExecuteStandardClass($classname(), source, .target, .aux)' />
+```
+1. Give this a try and test if you are feeling brave.
+
+
 ## FHIR Validation
 1. Go to the FHIR validator at [FHIR Validator](https://validator.fhir.org). 
 
@@ -143,12 +139,10 @@ Now you are validating against the UDS+ IG as well! Isn't FHIR fun?
 
 **Summary:** We muscled in a change just to see it take effect and start the testing and validation cycle. There's work ahead to complete the full mapping and make sure it conforms, but hopefully this exercise has given you a good idea of how to accomplish this task using the tools available.  
 
-> DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. 
-
 ## To Save the Production: 
 
 You can copy the contents of the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient** and the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.AgeExtension** class to the **FHIR-UDS-TRAINING/src/FHIRDEMO** folder via Cache Studio or Visual Studio Code.  
 
-> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. When you want to restart it, select **Compose - Up**. It will start up much faster than when you select **Compose - Restart** however all your coding and configuration changes will be reset. 
+Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select Compose - Down. > DO NOT do a COMPOSE RESTART on the container. This will rebuild the container and you will lose all changes unless you have saved them first. You can also stop and start the container from within Docker desktop if you need to without losing your changes.
 
 > Solution: There is a completed production class saved in the [Module 6 Solutions Folder](../solutions/exercise-2). This contains the production configuration, but does not contain the FHIR Server configuration.
