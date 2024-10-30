@@ -1,11 +1,11 @@
 # Module 5: Exercise 2
 
 
-# Navigating the FHIR documentation
+# Navigating the SDA
 
 ***To start this exercise you must first complete Module 5 Exercise 1.***
 
-**Objective:** The goal of this exercise is to learn how to access InterSystems FHIR Annotations.
+**Objective:** The goal of this exercise is to learn about InterSystems SDA.
 
 First, navigate to the Home screen of your IRIS instance. You can do this by clicking the Home button on the top bar or just click on the following link:
 
