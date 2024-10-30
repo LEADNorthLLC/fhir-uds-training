@@ -1,4 +1,6 @@
-# Module 6 Exercise 1 - Creating an HL7 to FHIR Integration #
+# Module 6: Exercise 1
+
+# Creating an HL7 to FHIR Integration
 
 **Learning Objectives:** 
 * Build an end-to-end HL7 to FHIR pipeline
@@ -17,9 +19,9 @@ This can also be done from the terminal with the following command:
 ```
 This command will take a few moments to run.
 
-2. Once your container is running you can now access the Healthshare portal at the following url:
+2. Once your container is running you can now access the IRIS portal at the following url:
 
-	*[http://localhost:32783/csp/sys/UtilHome.csp](http://localhost:32783/csp/sys/UtilHome.csp)*
+	http://localhost:32783/csp/sys/UtilHome.csp
 
 3. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** now. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
 
