@@ -7,7 +7,7 @@
 
 **Objective:** The goal of this exercise is to learn how to access InterSystems FHIR Annotations.
 
-First, navigate to the Home screen of your Healthshare instance. You can do this by clicking the Home button on the top bar or just click on the following link:
+First, navigate to the Home screen of your IRIS instance. You can do this by clicking the Home button on the top bar or just click on the following link:
 
 	http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS
 
