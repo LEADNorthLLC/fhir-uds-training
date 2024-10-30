@@ -208,6 +208,6 @@ Select the **Validate** button at the bottom of the screen and review the errors
 
 You can copy the contents of the **FHIRDEMO.FoundationProduction** class from the System Management Portal System Explorer area to a local folder.
 
-> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. > DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. You can stop and start the container from within Docker desktop if you need to without losing your changes.
+> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. > DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. You can also stop and start the container from within Docker desktop if you need to without losing your changes.
 
 > Solution: There is a completed production class saved in the [Module 6 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
