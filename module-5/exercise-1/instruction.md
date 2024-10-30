@@ -33,6 +33,6 @@ Inside the Production Configuration screen, you just need to click start (you'll
 
 Finally, you'll want to test the ability to access the IRIS terminal of your instance by executing the following at the command line:
 
-	```docker exec -it iris-container-iris-1 iris terminal IRIS```
+	docker exec -it iris-container-iris-1 iris terminal IRIS
 
 Save the above command somewhere handy for later reference.
