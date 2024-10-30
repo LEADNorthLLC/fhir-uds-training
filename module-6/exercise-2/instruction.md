@@ -1,4 +1,6 @@
-# Module 6 Exercise 2 - Creating a Custom DTL #
+# Module 6: Exercise 2
+
+# Creating a Custom DTL
 
 **Learning Objective:** 
 * Identify the location of standard DTLs
