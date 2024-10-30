@@ -7,7 +7,7 @@
 
 **Objective:** The goal of this exercise is to learn about InterSystems SDA.
 
-First, navigate to the XML Schemas screen of your IRIS instance. You can do this by clicking the following link:
+First, navigate to the XML Schemas screen of your IRIS instance by clicking on Interoperability -> Interoperate -> XML -> XML Schema Structures. You can also get there by clicking the following link:
 
 	http://localhost:32783/csp/healthshare/fhirdemo/EnsPortal.EDI.XML.SchemaMain.zen?$NAMESPACE=FHIRDEMO&$NAMESPACE=FHIRDEMO&
 
@@ -17,7 +17,10 @@ Now you should see all of the sections/structures contained within the SDA XML f
 
 **Tasks:**
 1. Search for and open the link for Container. How is this similar and different from a FHIR bundle?
+
+
 2. Click on the Procedures() on Row 15.  Review the details for ProcedureTime and indicate below what HL7 field this data comes from.
+
 
 3. Scroll to the EncounterNumber field on Row 4.  What happens when PV1-19.1 is null?
 
