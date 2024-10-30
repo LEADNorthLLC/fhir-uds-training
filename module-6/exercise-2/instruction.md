@@ -27,50 +27,36 @@
 **Requirements:**
 Calculate the age *value* by taking the current year and subtracting the year sent in the **source.birthTime** field in the SDA. You will hardcode the other values in the extension.  
 
-## Setting up Custom Transformation
+## Setting up a Custom Transformation Package
 First set the location of the custom DTL library
 
-1. Open the InterSystems Terminal from VS Code. First make sure the Docker container is running. Open a Terminal by going to **View Menu -> Terminal**
+1. First make sure the Docker container is running.
+2. From Visual Studio Code, open Terminal by going to **View Menu -> Terminal**
+3. Open an IRIS terminal session (if you don't remember how to do this refer back to Module 5: Exercise 1). Log in with the `_system/SYS` user/password.
+4. Change to **FHIRDEMO** namespace:
 
-2. This opens the Terminal window at the bottom of the project. (It may already be open). 
-* Find the `+` sign with the pull down. 
-* Select `Git Bash` as the terminal type. 
-* Type `docker ps` to figure out the name of the container. In this case `iris-container-1`
-* Once you have the name, type this command to start the shell. You will be looking at the internal Docker file system: 
-
-```bash
-	docker exec -it **iris container name** bash
 ```
-* From the new command prompt, open IRIS terminal by typing: `iris session IRIS`
-* Log in with the `_system/SYS` user/password
-
-Here is a screenshot showing the commands: 
-![Terminal commands](../images/module6-2-open-iris-terminal.png)
-
-3. Change to **FHIRDEMO** namespace:
-
-```bash
-	set $namespace = "FHIRDEMO"
+	ZN "FHIRDEMO"
 ```
 
-4. To check if a custom DTL package already exists, enter:
+5. To check if a custom DTL package already exists, enter:
 
-```bash
+```
  	Write ##class(HS.FHIR.DTL.Util.API.ExecDefinition).GetCustomDTLPackage()
 ```
 
-5. If the custom DTL package does not already exist, enter the following command which designates **HS.Local.FHIR.DTL** as the name of your custom DTL package:
-```bash
+6. If the custom DTL package does not already exist, the above code will return null.  To set the package, enter the following command which designates **HS.Local.FHIR.DTL** as the name of your custom DTL package:
+```
  	set status = ##class(HS.FHIR.DTL.Util.API.ExecDefinition).SetCustomDTLPackage("HS.Local.FHIR.DTL")
 ```
 
-6. To check that the package was defined successfully, enter:
+7. To check that the package was defined successfully, enter:
 
-```bash
+```
  write status
 ```
 
-The response should be: 1 which means the process was successful. You have set your custom DTL package. The FHIR processes will automatically give precedence to any versions of the DTL transforms located **HS.Local** in the **FHIRDEMO** namespace. 
+The response should be: 1 which means the processing was successful. You have set your custom DTL package. The FHIR processes will automatically give precedence to any versions of the DTL transforms located under **HS.Local** in the **FHIRDEMO** namespace. 
 
 ## Modifying the DTL Transformation Code
 
