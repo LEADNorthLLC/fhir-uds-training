@@ -15,7 +15,7 @@ This command will take a few moments to run.
 
 Once your container is running you can now access the Healthshare portal at the following url:
 
-	[http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS](http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS)
+	http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS
 
 Now we just need to start the production before we can move forward. Click on **Interoperability** and navigate to the **HEALTHTOOLKIT** namespace if not already selected. Click **Configure** then **Production** and finally **Go**.
 
