@@ -17,10 +17,7 @@ From here on the left bar, you need to click **Schema Documentation **and then *
 
 On this screen, you can access all of the FHIR documentation. Note the three different drop-downs you have access to. As you use these you will notice that only one drop down can be active at one time. Keep that in mind as you use this page.
 
-Tasks:
-
-
-
+**Tasks:**
 1. Find NamingSystem using the **FHIR4** dropdown.
 2. Find NamingSystem using the **FHIR4**
 3. **Category** dropdown.
