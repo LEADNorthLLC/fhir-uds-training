@@ -27,15 +27,15 @@ Inside of the code repo you have been given you can check what that web applicat
 
 	*src\HealthToolKit\REST\HL7.cls*
 
-Take a moment to try to break down and understand what is going on inside of the hl7 method then come back here.
+Take a moment to try to break down and understand what is going on inside of the HL7 method then come back here.
 
-This method is surprisingly simple. It is just passing the HL7 message into the production, which thankfully should be more familiar territory for us. Let’s now follow the HL7 message further along.
+This method is surprisingly simple. It is just passing the HL7 message into the production, which thankfully should be familiar territory for us. Let’s now follow the HL7 message further along.
 
 Navigate to production.
 
-This production is set up to handle CDA and HL7, but we just want to focus on HL7 for now. We enter in our service, HLK7_Http_Service. This entry point only passes the message into the processes since the web application is taking care of the actual entry point. Please note that your entryway does not have to be an API. Any typical service can work for you. From there we are passed forward to the HL7_SDA business process. 
+This production is set up to handle CDA and HL7, but we just want to focus on HL7 for now. We enter in our service, HL7_Http_Service. This entry point only passes the message into the processes since the web application is taking care of the actual entry point. Please note that your entryway does not have to be an API. Any typical service can work for you. From there we are passed forward to the HL7_SDA business process. 
 
-Let’s practice locating files in a docker container. Look at the class name in HL7_SDA under Informational Settings and use the trace to find the file. If you have trouble compare the file you previously found’s classname to its location.
+Let’s practice locating files in a docker container. Look at the class name in HL7_SDA under Informational Settings and use the trace to find the file. If you have trouble, compare the file you previously found’s classname to its location.
 
 Now that we are in the file, let’s look at the OnRequest method. Just like our API this is a fairly simple method. It turns our HL7 message to SDA using Healthshare default classes on line 19. It then sends that SDA to the next process in the chain.
 
