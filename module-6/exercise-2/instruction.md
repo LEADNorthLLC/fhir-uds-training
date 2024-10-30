@@ -60,7 +60,7 @@ The response should be: 1 which means the processing was successful. You have se
 
 ## Modifying the DTL Transformation Code
 
-1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the System Management Portal -> Interoperability -> Build -> Data Transformations.
+1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the System Management Portal -> Interoperability -> Build -> Data Transformations and clicking Open
 
 2. Click on **Save As** to copy the **HS.FHIR.DTL.SDA3.vR4.Patient.Patient** class to a new class called: **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient**. The naming is important here as the FHIR base code will give this custom class precedence over the out-of-the-box transform. 
 
@@ -107,6 +107,14 @@ Save and Compile When done.
 1. Repeat the steps you did in **Module 6 - Exercise 1** to drop an HL7 message in **iris-container/data/durable/module6-exercise1-inbound**. 
 2. Check in the **Message Trace** to ensure there were no errors. Review the output FHIR bundle or transaction to confirm that the update took effect. 
 3. Troubleshoot the mapping as needed. 
+
+## Alternate Path
+You can also still call the full original "standard" class without having to maintain a full copy of it.  So, for instance, if you want to only add one change, you can do the following and then add your change afterwards in the DTL:
+```
+<assign property='status' value='##class(HS.FHIR.DTL.Util.Execute).ExecuteStandardClass($classname(), source, .target, .aux)' />
+```
+1. Give this a try and test if you are feeling brave.
+
 
 ## FHIR Validation
 1. Go to the FHIR validator at [FHIR Validator](https://validator.fhir.org). 
