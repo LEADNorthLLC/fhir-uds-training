@@ -7,7 +7,7 @@
 
 **Note: You may need to refer back to these instructions as you start other exercises or if you stop partway through an exercise.  
 
-The first step is to start your docker container. Open the Docker desktop application. Once that has started, navigate to the **\exercise **folder and run the following command.
+The first step is to start your docker container. Open the Docker desktop application. Once that has started, navigate to the **\exercise** folder and run the following command.
 
 	docker-compose up --build -d
 
@@ -17,7 +17,7 @@ Once your container is running you can now access the Healthshare portal at the 
 
 	*[http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS](http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS)*
 
-Now we just need to start the production before we can move forward. Click on **Interoperability **and navigate to the **HEALTHTOOLKIT **namespace if not already selected. Click **Configure **then **Production **and finally **Go**.
+Now we just need to start the production before we can move forward. Click on **Interoperability** and navigate to the **HEALTHTOOLKIT** namespace if not already selected. Click **Configure** then **Production** and finally **Go**.
 
 Inside the Production Configuration screen, you just need to click start and your setup will be complete!
 
