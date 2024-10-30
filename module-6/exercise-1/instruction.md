@@ -190,24 +190,24 @@ This is the version of the FHIR Server we are checking against (remember when we
 
 Select the **Validate** button at the bottom of the screen and review the errors and warnings. 
 
-14. Even though the FHIR bundle was accepted by the IRIS FHIR Server, there are many errors still when the message is validated against the official specifications. FHIR Servers will vary in how strict their validations are and whether they are configured to reject messages or accept them when there are non-conformance issues that are not deemed fatal. 
+14. Even though the FHIR bundle was accepted by the IRIS FHIR Server, there are many errors still when the message is validated against the official specifications. FHIR Servers will vary in how strict their validations are and whether they are configured to reject messages or accept them when there are non-conformance issues that are not deemed fatal.
 
-15. Now that you have completed an end-to-end, go back to the **FHIRDEMO** and try to figure out how to do each of these: 
+** Note that SDA does include extensions which are beyond the US Core extensions so the validator doesn't recognize these.  While these are conformant with R4, they are beyond what is typically expected and thus cause validation errors.    
+
+15. Now that you have completed an end-to-end interface, go back to the **FHIRDEMO** and try to figure out how to do each of these: 
 
 *15-1*. What happens when you send another HL7 message through? What about an ORU? 
 
-*15-2*. How can you configure the components to send indivudal resources rather than an entire bundle at once? 
+*15-2*. How can you configure the components to send individual resources rather than an entire bundle at once? 
 
 *15-3*. How can you configure the feed to use the **Message Control ID (MSH:10)** as the `PatientResourceId`? (You wouldn't necessarily want to do this, but it is good to see how the message changes when that's done)
 
 *15-4*. **Bonus!!!** Can you figure out how to use Postman to query back the message you just sent in? 
 
-> DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. 
-
 ## To Save the Production: 
 
-You can copy the contents of the **FHIRDEMO.FoundationProduction** class to the **FHIR-UDS-TRAINING/src/FHIRDEMOPKG** folder via Cache Studio or Visual Studio Code.  
+You can copy the contents of the **FHIRDEMO.FoundationProduction** class from the System Management Portal System Explorer area to a local folder.
 
-> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. When you want to restart it, select **Compose - Up**. It will start up much faster than when you select **Compose - Restart** however all your coding and configuration changes will be reset. 
+> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select **Compose - Down**. > DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. You can stop and start the container from within Docker desktop if you need to without losing your changes.
 
 > Solution: There is a completed production class saved in the [Module 6 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
