@@ -60,7 +60,7 @@ The response should be: 1 which means the processing was successful. You have se
 
 ## Modifying the DTL Transformation Code
 
-1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the InterSystems Server Manager extension via the "I" icon on the left hand bar, going to the Explorer area (ensure you are connected to the server) and navigating the classes.  If you aren't connected to the server, please refer back to Module 5: Exercise 1.
+1. Open up the Patient Resource DTL: **HS.FHIR.DTL.SDA3.vR4.Patient.Patient**.  This is accessible by going to the System Management Portal -> Interoperability -> Build -> Data Transformations.
 
 2. Click on **Save As** to copy the **HS.FHIR.DTL.SDA3.vR4.Patient.Patient** class to a new class called: **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient**. The naming is important here as the FHIR base code will give this custom class precedence over the out-of-the-box transform. 
 
