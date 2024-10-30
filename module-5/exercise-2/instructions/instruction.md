@@ -3,7 +3,7 @@
 
 # Navigating the FHIR documentation
 
-***To start this exercise you must have completed Module 5 Exercise 1.***
+***To start this exercise you must first complete Module 5 Exercise 1.***
 
 **Objective:** The goal of this exercise is to learn how to access InterSystems FHIR Annotations.
 
