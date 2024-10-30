@@ -15,7 +15,7 @@ This command will take a few moments to run.
 
 Once your container is running you can now access the Healthshare portal at the following url:
 
-	***[http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS](http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS)***
+	[http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS](http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS)
 
 Now we just need to start the production before we can move forward. Click on **Interoperability** and navigate to the **HEALTHTOOLKIT** namespace if not already selected. Click **Configure** then **Production** and finally **Go**.
 
@@ -23,6 +23,6 @@ Inside the Production Configuration screen, you just need to click start and you
 
 To test if your production is working properly you can access the following url to test the FHIR endpoints:
 
-	***http://localhost:32783/swagger-ui/index.html***
+	http://localhost:32783/swagger-ui/index.html
 
 This url provides preset API requests that you can execute. You can also change the preset data and urls to test the API further.
