@@ -31,9 +31,8 @@ Now we just need to start the production before we can move forward. Click on **
 
 Inside the Production Configuration screen, you just need to click start (you'll be adding production components later).
 
-Finally, you'll want to test the ability to access the IRIS terminal of your instance by 
+Finally, you'll want to test the ability to access the IRIS terminal of your instance by executing the following at the command line:
 
-docker exec -it docker-compose-xFormApp-1 iris terminal iris where docker-compose-xFormApp-1 is your container name
+	```docker exec -it iris-container-iris-1 iris terminal IRIS```
 
-
-< need to add something here for terminal access >
+Save the above command somewhere handy for later reference.
