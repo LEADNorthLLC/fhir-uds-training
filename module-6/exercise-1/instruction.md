@@ -11,6 +11,8 @@
 
 Ensure your container is running or refer back to Module 5: Exercise 1.
 
+**Load Necessary Code:** From the IRIS System Management Portal, navigate to System Explorer -> Classes.  Select Import and choose 
+
 From the IRIS System Management Portal, open the FHIRDEMO Production by navigating to Interoperability -> Configure -> Production from the **FHIRDEMO** namespace.  Execute the following steps:
 
 1. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
