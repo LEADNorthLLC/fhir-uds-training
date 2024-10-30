@@ -1,32 +1,32 @@
 # Module 5: Exercise 2
 
 
-# Navigating the SDA
+# Loading and Navigating SDA
 
 ***To start this exercise you must first complete Module 5 Exercise 1.***
 
 **Objective:** The goal of this exercise is to learn about InterSystems SDA.
 
-First, navigate to the Home screen of your IRIS instance. You can do this by clicking the Home button on the top bar or just click on the following link:
+First, navigate to the XML Schemas screen of your IRIS instance. You can do this by clicking the following link:
 
-	http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS
+	http://localhost:32783/csp/healthshare/fhirdemo/EnsPortal.EDI.XML.SchemaMain.zen?$NAMESPACE=FHIRDEMO&$NAMESPACE=FHIRDEMO&
 
-Now, navigate to the **Health** tab from the Home screen.
+Now, click on the Import button and select the HS.SDA3.xsd file located under the \irisdata\ folder. If you don't see the file, ensure that your "File of Type" dropdown is set to see XSD files. Complete the import.
 
-To the right of the word **Foundation,** click on the FHIRDEMO namespace.
-
-On the left navigation bar, click **Schema Documentation** and then **FHIR Annotations.**
-
-On this screen, you can access all of the InterSystems FHIR documentation. Note the three different drop-downs you have access to. As you use these you will notice that only one drop down can be active at one time. However, the first two dropdowns work together and are specific to FHIR to SDA3 mapping information while the third dropdown is for SDA3 to FHIR mapping information. You'll also notice that the each dropdown may include FHIR resource types, data types AND other structural element types. Keep that in mind as you use this page.
+Now you should see all of the sections/structures contained within the SDA XML format. Any documentation you may run across that relates to "Viewer cache or VIEWERLIB" can generally be ignored as this relates to Clinical Viewer in a HealthShare UCR environment only.
 
 **Tasks:**
-1. Find Medication using the **FHIR4** dropdown.
-2. Find Patient using the **Category** dropdown.
-3. Find ObservationGroup using the **HS.SDA3** dropdown. Note the differences and similarities in the three drop downs.
+1. Search for and open the link for Container. How is this similar and different from a FHIR bundle?
+2. Click on the Procedures() on Row 15.  Review the details for ProcedureTime and indicate below what HL7 field this data comes from.
 
+3. Scroll to the EncounterNumber field on Row 4.  What happens when PV1-19.1 is null?
 
+   
+4. What is the EncounterNumber when PV1-19.1 is populated and FromTime is also populated?
 
-4. Find the mapping from the Medication section of SDA3 to FHIR. Use whatever dropdown you deem appropriate.
-5. Find the Quantity.system **SDA3 Target** field using whatever dropdown you deem appropriate.
-6. Find SearchParameter:multipleAnd **FHIR4 Data Type** using whatever dropdown you deem appropriate.
+   
+5. Head back to the main page for Container and indicate which section of SDA will contain the data coming in from DG1?
+
+   
+6. Go another level up to the main SDA schema page and dig into three more SDA structures. Scan the documentation to get a feel for some of the constraints, data types and other details that involve mapping data into SDA3.
 
