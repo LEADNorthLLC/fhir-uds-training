@@ -9,7 +9,7 @@
 
 First, navigate to the Home screen of your Healthshare instance. You can do this by clicking the Home button on the top bar or just click on the following link:
 
-	*[http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS](http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS)*
+	http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS
 
 Now we need to navigate to the HealthShare tab on the home screen. Click **Health** and then to the ___. 
 
@@ -24,9 +24,7 @@ Tasks:
 1. Find NamingSystem using the **FHIR4** dropdown.
 2. Find NamingSystem using the **FHIR4**
 3. **Category** dropdown.
-4. Find HS.SDA3.ObservationGroup using the **HS.SDA3** dropdown.
-
-		Note the differences in the three drop downs and the similarities.
+4. Find HS.SDA3.ObservationGroup using the **HS.SDA3** dropdown. Note the differences in the three drop downs and the similarities.
 
 
 
