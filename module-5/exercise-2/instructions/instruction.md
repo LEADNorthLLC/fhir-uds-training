@@ -13,7 +13,7 @@ First, navigate to the Home screen of your IRIS instance. You can do this by cli
 
 Now, navigate to the **Health** tab from the Home screen.
 
-To the right of the word **Foundation,** click on the HEALTHTOOLKIT namespace.
+To the right of the word **Foundation,** click on the FHIRDEMO namespace.
 
 On the left navigation bar, click **Schema Documentation** and then **FHIR Annotations.**
 
