@@ -143,6 +143,6 @@ Now you are validating against the UDS+ IG as well! Isn't FHIR fun?
 
 You can copy the contents of the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.Patient** and the **HS.Local.FHIR.DTL.SDA3.vR4.Patient.AgeExtension** class to the **FHIR-UDS-TRAINING/src/FHIRDEMO** folder via Cache Studio or Visual Studio Code.  
 
-> Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down without losing your changes, you can stop and start the container via Docker desktop. > DO NOT do a ***COMPOSE RESTART*** on the container. This will rebuild the container and you will lose all changes unless you have saved them first. 
+Tip: You can keep the Docker service > running in the background while you work. If you want to shut it down, select Compose - Down. > DO NOT do a COMPOSE RESTART on the container. This will rebuild the container and you will lose all changes unless you have saved them first. You can also stop and start the container from within Docker desktop if you need to without losing your changes.
 
 > Solution: There is a completed production class saved in the [Module 6 Solutions Folder](../solutions/exercise-2). This contains the production configuration, but does not contain the FHIR Server configuration.
