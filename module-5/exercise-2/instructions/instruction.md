@@ -1,11 +1,11 @@
-# Exercise 2
+# Module 5: Exercise 2
 
 
 # Navigating the FHIR documentation
 
-***To start this exercise you must have previously completed Exercise 5.***
+***To start this exercise you must have completed Module 5 Exercise 1.***
 
-**Objective: **The goal of this exercise is to 
+**Objective:** The goal of this exercise is to learn how to access InterSystems FHIR Annotations.
 
 First, navigate to the Home screen of your Healthshare instance. You can do this by clicking the Home button on the top bar or just click on the following link:
 
@@ -21,16 +21,16 @@ Tasks:
 
 
 
-1. Find NamingSystem using the **FHIR4 **drop-down.
+1. Find NamingSystem using the **FHIR4** dropdown.
 2. Find NamingSystem using the **FHIR4**
-3. **Category **drop-down.
-4. Find HS.SDA3.ObservationGroup using the **HS.SDA3 **drop-down.
+3. **Category** dropdown.
+4. Find HS.SDA3.ObservationGroup using the **HS.SDA3** dropdown.
 
 		Note the differences in the three drop downs and the similarities.
 
 
 
-5. Find HS.SDA3.Medication:Category  **SDA3 Data Type **using whatever dropdown you deem appropriate.
+5. Find HS.SDA3.Medication:Category  **SDA3 Data Type** using whatever dropdown you deem appropriate.
 6. FindQuantity:system **SDA3 Target** using whatever dropdown you deem appropriate.
 7. Find SearchParameter:multipleAnd **FHIR4 Data Type** using whatever dropdown you deem appropriate.
 
