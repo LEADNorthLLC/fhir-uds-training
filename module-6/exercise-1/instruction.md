@@ -1,4 +1,6 @@
-# Module 6: Exercise 1 - Creating an HL7 to FHIR Integration #
+# Module 6: Exercise 1
+
+Creating an HL7 to FHIR Integration #
 
 **Learning Objectives:** 
 * Build an end-to-end HL7 to FHIR pipeline
