@@ -19,8 +19,7 @@ On this screen, you can access all of the FHIR documentation. Note the three dif
 
 **Tasks:**
 1. Find NamingSystem using the **FHIR4** dropdown.
-2. Find NamingSystem using the **FHIR4**
-3. **Category** dropdown.
+2. Find NamingSystem using the **Category** dropdown.
 4. Find HS.SDA3.ObservationGroup using the **HS.SDA3** dropdown. Note the differences in the three drop downs and the similarities.
 
 
