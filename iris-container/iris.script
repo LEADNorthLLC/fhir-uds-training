@@ -2,44 +2,19 @@ ROUTINE iris
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
-    // Load the application code
+    zn "HSLIB"
+    Do ##class(HS.Util.Installer.Foundation).Install("FHIRDEMO")
+    zn "FHIRDEMO"
+
     zpm "load /irisdev/app -v"
-
-
-    zn "HSLIB"
-     set namepsace = "FHIRDEMO"
-    w "About to install FHIRDEMO",!
-    IF '##class(%SYS.Namespace).Exists(namespace) {
-        w "Installing FHIRDEMO",!
-        Do ##class(HS.Util.Installer.Foundation).Install("FHIRDEMO")     
-        zn "FHIRDEMO"
-        zpm "install fhir-demo"
-
-        ;set productionName = "FHIRDEMOPKG.FoundationProduction"
-        ;set ^Ens.Configuration("csp","LastProduction") = productionName
-        ;do ##class(Ens.Director).SetAutoStart(productionName)
-        ;If $$$ISOK(status) {
-        ;     Write "Foundation production installed successfully.", !
-        ;} Else {
-        ;    Write "Error during installation: ", $System.Status.DisplayError(status), !
-        ;}
-    }    
-
-    zn "HSLIB"
-    set namepsace = "HEALTHTOOLKIT"
-    IF '##class(%SYS.Namespace).Exists(namespace) {
-        Do ##class(HS.Util.Installer.Foundation).Install("HEALTHTOOLKIT")     
-        zn "HEALTHTOOLKIT"
-
-        // Load the application code
-        zpm "install fhir-demo"
-       }
     
-    
-    ; zpm install openapi class definiton
-    zpm "install swagger-ui"
-
-   
-
+    set productionName = "FHIRDEMOPKG.FoundationProduction"
+    set ^Ens.Configuration("csp","LastProduction") = productionName
+    do ##class(Ens.Director).SetAutoStart(productionName)
+    If $$$ISOK(status) {
+        Write "Foundation production installed successfully.", !
+    } Else {
+        Write "Error during installation: ", $System.Status.DisplayError(status), !
+    }
    
 halt

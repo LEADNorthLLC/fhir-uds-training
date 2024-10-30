@@ -27,12 +27,28 @@ Once your container is running you can now access the IRIS portal at the followi
 
 	http://localhost:32783/csp/sys/%25CSP.Portal.Home.zen?$NAMESPACE=%25SYS
 
+## Starting the Production
 Now we just need to start the production before we can move forward. Click on **Interoperability** and navigate to the **FHIRDEMO** namespace if not already selected. Click **Configure** then **Production** and finally **Go**.
 
-Inside the Production Configuration screen, you just need to click start (you'll be adding production components later).
+Inside the Production Configuration screen, you just need to click **START** (you'll be adding production components later).
 
-Finally, you'll want to test the ability to access the IRIS terminal of your instance by executing the following at the command line:
+## Opening a Terminal in VSCode
 
-	docker exec -it iris-container-iris-1 iris terminal IRIS
+1. Open the InterSystems Terminal from VS Code. First make sure the Docker container is running. Open a Terminal by going to **View Menu -> Terminal**
+
+2. This opens the Terminal window at the bottom of the project. (It may already be open). 
+* Find the `+` sign with the pull down. 
+* Select `Git Bash` as the terminal type. 
+* Type `docker ps` to figure out the name of the container. In this case `iris-container-1`
+* Once you have the name, type this command to start the shell. You will be looking at the internal Docker file system: 
+
+```bash
+	docker exec -it **iris container name** bash
+```
+* From the new command prompt, open IRIS terminal by typing: `iris session IRIS`
+* Log in with the `_system/SYS` user/password
+
+Here is a screenshot showing the commands: 
+![Terminal commands](../images/module5-open-iris-terminal.png)
 
 Save the above command somewhere handy for later reference.

@@ -120,9 +120,6 @@ Configure the following Settings.
 
 | **Property Name**  | **Value** |
 |:-----------------------:|:---------:|
-| TransmissionMode | transaction |
-| FHIRMetadataSet | HL7v40 / FHIR R4 Core Specification |
-| FHIREndpoint* | /csp/healthshare/fhirdemo/fhir/r4 |
 | LogTraceEvents | *checked* |
 | TraceOperations | `*FULL*` |
 
