@@ -109,7 +109,7 @@ Save and Compile When done.
 3. Troubleshoot the mapping as needed. 
 
 ## Alternate Path
-You can also still call the full original "standard" class without having to maintain a full copy of it.  So, for instance, if you want to only add one change, you can do the following and then add your change afterwards in the DTL:
+You can also still call the full original "standard" DTL class without having to maintain a full copy of its code in your new custom DTL.  So, for instance, if you want to only add one change, you can do the following which executes the standard class and then add your change afterwards in the DTL:
 ```
 <assign property='status' value='##class(HS.FHIR.DTL.Util.Execute).ExecuteStandardClass($classname(), source, .target, .aux)' />
 ```
