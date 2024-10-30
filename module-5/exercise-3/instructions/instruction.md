@@ -3,7 +3,7 @@
 
 # Transforming HL7 to SDA
 
-***To start this exercise you must have previously completed Exercises 1 and 2 for this Module and have the production running.***
+***To start this exercise you must complete Exercises 1 and 2 for this Module first and have the production running.***
 
 **Objective:** Learn how to use FHIR endpoints to create FHIR HL7 transformations. 
 
