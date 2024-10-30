@@ -1,21 +1,19 @@
-# Exercise 3
+# Module 5: Exercise 3
 
 
 # Transforming HL7 to SDA
 
-***To start this exercise you must have previously completed Exercise 5 and have the production running.***
+***To start this exercise you must have previously completed Exercises 1 and 2 for this Module and have the production running.***
 
-**Objective: **Learn how to use FHIR endpoints to create FHIR HL7 transformations. 
+**Objective:** Learn how to use FHIR endpoints to create FHIR HL7 transformations. 
 
-In this exercise we will be using swagger for our exercises. *Please note that you do not have to use swagger in the future. Any way of accessing API’s will work, IE testing applications like Postman, eclipse, ect.*
+In this exercise we will be using swagger for our exercises. *Please note that you do not have to use swagger in the future. Any way of accessing APIs will work (i.e., testing applications via Postman, eclipse, etc.)*
 
-	*http://localhost:32783/swagger-ui/index.html*
+	http://localhost:32783/swagger-ui/index.html
 
-The endpoint we will be using in this exercise takes in an HL7 message and then returns SDA 
+The endpoint we will be using in this exercise takes in an HL7 message and returns SDA.
 
 Tasks:
-
-
 
 1. Transform to SDA
 2. Transform to SDA
