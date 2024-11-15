@@ -113,7 +113,7 @@ Configure these **Business Process** settings in the wizard:
 | Display Category | Module7-Exercise1 |
 | Enable Now | Selected |
 
-5. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business prcesses).
+5. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business processes).
 
 Configure these **Business Process** settings in the wizard: 
 
@@ -236,4 +236,4 @@ Click on the **Messages** tab. You should see the available message traces. Clic
 If you see errors, read the error messages, double check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again.
 
 
-> Solution: The comleted classes are located in the [Module 7 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
+> Solution: The completed classes are located in the [Module 7 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
