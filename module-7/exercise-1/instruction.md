@@ -224,7 +224,6 @@ Typically, the file system in the Docker container is completely separate from t
 
 *12-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module7-exercise3-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
 
-Your folders will look like this (Don't worry if the top-level name is more detailed than `FHIR-UDS-TRAINING`): 
 
 13. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile icon for the `_system` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
 
