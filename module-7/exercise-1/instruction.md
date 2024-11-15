@@ -128,8 +128,8 @@ Configure these **Business Operation** settings in the wizard:
 
 | **Configuration Name**  | **Value** |
 |:-----------------------:|:--------------:|
-| Operation Class | UDSFHIRServer.Operation |
-| Operation Name | HS.FHIRServer.Interop.Operation |
+| Operation Class | HS.FHIRServer.Interop.Operation |
+| Operation Name | UDSFHIRServer.Operation |
 | Display Category | Module7-Exercise1 |
 | Enable Now | Selected |
 
@@ -147,7 +147,7 @@ Then click on the **Settings** tab on the right panel to configure the service p
 
 Make sure to click **Apply** to save your Settings. 
 
-*9-2*. Click on the icon/name for the **FHIR.HL7toSDA1** Process. 
+*9-2*. Click on the icon/name for the **FHIR.RecordMappertoSDA Process** Process. 
 
 This is a custom process that is identifying what Record Field will be set as the `PatientResourceId`, which is required in the Patient Resource. Configure the following Settings.   
 
@@ -217,11 +217,11 @@ Configure the following Settings.
 
 Click **Add**. It will take a few minutes to build the endpoint. You can leave this screen and return to VSCode while the endpoint builds. 
 
-12. **Create the data iput directory in VS Code**
+12. **Create the data input directory in VS Code**
 
 Typically, the file system in the Docker container is completely separate from the folders and files you have in the project folder. However, the container has been set up with a bind mount that connects the `iris-container/data/durable` folder in the FHIR-UDS-TRAINING project with the `/irisdata` folder in the IRIS instance. 
 
-*12-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module7-exercise1-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
+*12-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module7-exercise3-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
 
 Your folders will look like this (Don't worry if the top-level name is more detailed than `FHIR-UDS-TRAINING`): 
 
@@ -231,7 +231,7 @@ Go to **Home -> Interoperability -> Select FHIRDEMO -> Configuration -> Producti
 
 Click on the **Messages** tab. You should see the available message traces. Click on the link under **Header** to trace the activity. 
 
-If you see errors, read the error messages, doouble check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again.
+If you see errors, read the error messages, double check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again.
 
 
 > Solution: The comleted classes are located in the [Module 7 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
