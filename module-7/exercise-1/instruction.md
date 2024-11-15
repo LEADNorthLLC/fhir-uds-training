@@ -143,6 +143,7 @@ Then click on the **Settings** tab on the right panel to configure the service p
 |:-----------------------:|:----------------------:|
 | File Path | /irisdata/module7-exercise1-inbound/ |
 | TargetConfigNames | FHIR.RecordMappertoSDA |
+| RecordMap | HS.Local.FHIR.Messages.UDSPatientExport |
 
 
 Make sure to click **Apply** to save your Settings. 
