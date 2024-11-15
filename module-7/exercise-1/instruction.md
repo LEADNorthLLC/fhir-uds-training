@@ -85,9 +85,9 @@ Use the mapping table you worked on previously to map the inbound message to the
 
 ### Task 3 - Create an end-to-end routing
 
-1. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** in the list of namespaces. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
+1. **Open the VSCode:** Navigate to the module 6 durable folder in the iris container `iris-container/data/durable/module6-exercise1-code`. Then copy the file **HS.Local.FHIR.RecordMappertoSDAProcess** and paste it in the `iris-container/src/FHIRDEMO/HS/Local/FHIR` directory. Make sure you have saved the file and that it is compiled before moving on.
 
-2. 
+2. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** in the list of namespaces. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
 
 3. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
 
