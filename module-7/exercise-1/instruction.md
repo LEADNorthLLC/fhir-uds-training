@@ -85,9 +85,11 @@ Use the mapping table you worked on previously to map the inbound message to the
 
 ### Task 3 - Create an end-to-end routing
 
-1. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** in the list of namespaces. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
+1. **Open the VSCode:** Navigate to the module 6 durable folder in the iris container `iris-container/data/durable/module6-exercise1-code`. Then copy the file **HS.Local.FHIR.RecordMappertoSDAProcess** and paste it in the `iris-container/src/FHIRDEMO/HS/Local/FHIR` directory. Make sure you have saved the file and that it is compiled before moving on.
 
-4. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
+2. **Open the FHIRDEMO Production:** Navigate to the production by selecting **HOME->Interoperability**. You will see **FHIRDEMO** in the list of namespaces. Select **FHIRDEMO** and then in the next screen, click the **Go** button to view the production. 
+
+3. **Add a Business Service:** Click on the plus `+` next to the **Services** header. 
 
 Configure these **Business Service** settings in the wizard: 
 
@@ -100,7 +102,7 @@ Configure these **Business Service** settings in the wizard:
 
 The service should be added to the production now. 
 
-6. **Add a Business Process:** Click on the `+` symbol next to the **Processes** header. 
+4. **Add a Business Process:** Click on the `+` symbol next to the **Processes** header. 
 
 Configure these **Business Process** settings in the wizard: 
 
@@ -111,7 +113,7 @@ Configure these **Business Process** settings in the wizard:
 | Display Category | Module7-Exercise1 |
 | Enable Now | Selected |
 
-7. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business prcesses).
+5. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business processes).
 
 Configure these **Business Process** settings in the wizard: 
 
@@ -122,20 +124,20 @@ Configure these **Business Process** settings in the wizard:
 | Display Category | Module7-Exercise1 |
 | Enable Now | Selected |
 
-8. **Add a Standard FHIR Server Operation:** Click on the `+` symbol next to the **Operations** header. 
+6. **Add a Standard FHIR Server Operation:** Click on the `+` symbol next to the **Operations** header. 
 
 Configure these **Business Operation** settings in the wizard: 
 
 | **Configuration Name**  | **Value** |
 |:-----------------------:|:--------------:|
-| Operation Class | UDSFHIRServer.Operation |
-| Operation Name | HS.FHIRServer.Interop.Operation |
+| Operation Class | HS.FHIRServer.Interop.Operation |
+| Operation Name | UDSFHIRServer.Operation |
 | Display Category | Module7-Exercise1 |
 | Enable Now | Selected |
 
-9. **Build End-to-End**: Now you have four business components. In order to hook them together to run and end-to-end, we'll cover the **Properties** for each of the components. 
+7. **Build End-to-End**: Now you have four business components. In order to hook them together to run and end-to-end, we'll cover the **Properties** for each of the components. 
 
-*9-1*. Start on the left by clicking on the icon/name for the **UDSPatientExportFileService** service: 
+*7-1*. Start on the left by clicking on the icon/name for the **UDSPatientExportFileService** service: 
 
 Then click on the **Settings** tab on the right panel to configure the service properties: 
 
@@ -143,11 +145,12 @@ Then click on the **Settings** tab on the right panel to configure the service p
 |:-----------------------:|:----------------------:|
 | File Path | /irisdata/module7-exercise1-inbound/ |
 | TargetConfigNames | FHIR.RecordMappertoSDA |
+| RecordMap | HS.Local.FHIR.Messages.UDSPatientExport |
 
 
 Make sure to click **Apply** to save your Settings. 
 
-*9-2*. Click on the icon/name for the **FHIR.HL7toSDA1** Process. 
+*7-2*. Click on the icon/name for the **FHIR.RecordMappertoSDA Process** Process. 
 
 This is a custom process that is identifying what Record Field will be set as the `PatientResourceId`, which is required in the Patient Resource. Configure the following Settings.   
 
@@ -159,7 +162,7 @@ This is a custom process that is identifying what Record Field will be set as th
 
 Make sure to click **Apply** to save your Settings. 
 
-*9-3*. Click on the icon/name for the **HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process2** Process. 
+*7-3*. Click on the icon/name for the **HS.FHIR.DTL.Util.HC.SDA3.FHIR.Process2** Process. 
 
 Configure the following Settings.   
 
@@ -176,7 +179,7 @@ Configure the following Settings.
 
 Make sure to click **Apply** to save your Settings. 
 
-*9-4*. Click on the icon/name for the **UDSFHIRServer.Operation** Operation. 
+*7-4*. Click on the icon/name for the **UDSFHIRServer.Operation** Operation. 
 
 Configure the following Settings.   
 
@@ -187,22 +190,22 @@ Configure the following Settings.
 
 Make sure to click **Apply** to save your Settings. 
 
-10. **Make Sure `HS.Util.Trace.Operations` is added** 
+8. **Make Sure `HS.Util.Trace.Operations` is added** 
 
 *This may already be done from previous exercise, if not...*
 
 Click on the `+` on the Operations header to the right and add `HS.Util.Trace.Operations` as the Class name and Operation name. Select `Enable` and **Apply**. 
 
 
-11. **Configure the FHIR Server**
+9. **Configure the FHIR Server**
 
 With the **FHIRDEMO** namespace selected, click on **Home** and then select **HEALTH** either on the panel on the left or at the top of the System Management portal. 
 
 Select the **FHIR Configuration** section: 
 
-*11-1*. Log in with the same username and password for IRIS. User:`_system` Password: `SYS`
+*9-1*. Log in with the same username and password for IRIS. User:`_system` Password: `SYS`
 
-*11-2*. Select **Server Configuration** and then click the **Add Endpoint** button. 
+*9-2*. Select **Server Configuration** and then click the **Add Endpoint** button. 
 
 Enter these configurations: 
 Configure the following Settings.   
@@ -217,21 +220,20 @@ Configure the following Settings.
 
 Click **Add**. It will take a few minutes to build the endpoint. You can leave this screen and return to VSCode while the endpoint builds. 
 
-12. **Create the data iput directory in VS Code**
+10. **Create the data input directory in VS Code**
 
 Typically, the file system in the Docker container is completely separate from the folders and files you have in the project folder. However, the container has been set up with a bind mount that connects the `iris-container/data/durable` folder in the FHIR-UDS-TRAINING project with the `/irisdata` folder in the IRIS instance. 
 
-*12-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module7-exercise1-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
+*10-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module7-exercise3-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
 
-Your folders will look like this (Don't worry if the top-level name is more detailed than `FHIR-UDS-TRAINING`): 
 
-13. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile icon for the `_system` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
+11. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile icon for the `_system` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
 
 Go to **Home -> Interoperability -> Select FHIRDEMO -> Configuration -> Production**. 
 
 Click on the **Messages** tab. You should see the available message traces. Click on the link under **Header** to trace the activity. 
 
-If you see errors, read the error messages, doouble check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again.
+If you see errors, read the error messages, double check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again.
 
 
-> Solution: The comleted classes are located in the [Module 7 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 
+> Solution: The completed classes are located in the [Module 7 Solutions Folder](../solutions/exercise-1/FHIRDEMO.FoundationProduction.cls). This contains the production configuration, but does not contain the FHIR Server configuration. 

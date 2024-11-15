@@ -95,7 +95,7 @@ Save and Compile when done.
 
 > Be very careful when editing this code. You are keeping the Patient Resource mapping intact while adding in a call-out to the sub-transform for the Age Extension you just created. 
 
-Follow the model in the existing class to call the sub-transform. In the example, the code block was added rigt before the **birthTime** mapping since the **source.birthTime** value is used to caculate the age. 
+Follow the model in the existing class to call the sub-transform. In the example, the code block was added right before the **birthTime** mapping since the **source.birthTime** value is used to calculate the age. 
 
 ![Code block added in Patient Resource DTL](../images/module6-2-custom-patient-DTL.png)
 

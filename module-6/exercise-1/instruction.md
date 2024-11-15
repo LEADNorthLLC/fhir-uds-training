@@ -7,7 +7,7 @@
 * Learn about standard IRIS FHIR processes, operations, and transformations
 * Configure the IRIS FHIR Server
 * Read a FHIR message trace
-* Validate a FHIR Bundle using FHIR Vaildator
+* Validate a FHIR Bundle using FHIR Validator
 
 Ensure your container is running or refer back to Module 5: Exercise 1.
 
@@ -41,7 +41,7 @@ Configure these **Business Process** settings in the wizard:
 | Display Category | Module6-Exercise1 |
 | Enable Now | Selected |
 
-3. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business prcesses).
+3. **Add the Standard FHIR Business Process:** Click on the `+` symbol next to the **Processes** header. (We will have two business processes).
 
 Configure these **Business Process** settings in the wizard: 
 
@@ -108,15 +108,10 @@ Make sure to click **Apply** to save your Settings.
 
 | **Configuration Name**  | **Value** |
 |:-----------------------:|:---------:|
-<<<<<<< HEAD
-| LogTraceEvents | *checked* |
-| TraceOperations | `*FULL*` |
-=======
 | Operation Class | HS.Util.Trace.Operations |
 | Operation Name | HS.Util.Trace.Operations |
 | Display Category | Module6-Exercise1 |
 | Enable Now | Selected |
->>>>>>> fe966bf0feb92f62e8d9f91a8e67c7ae4890e59a
 
 Make sure to click **Apply** to save your Settings. 
 
@@ -149,7 +144,7 @@ Click **Add**. It will take a few minutes to build the endpoint. You can leave t
 
 Typically, the file system in the Docker container is completely separate from the folders and files you have in the project folder. However, the container has been set up with a bind mount that connects the `iris-container/data/durable` folder in the FHIR-UDS-TRAINING project with the `/irisdata` folder in the IRIS instance. 
 
-*8-1*. In VSCode, right click on the `iris-continer/data/durable` folder and select `Add Folder`. Name the folder `module6-exercise1-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
+*8-1*. In VSCode, right click on the `iris-container/data/durable` folder and select `Add Folder`. Name the folder `module6-exercise1-inbound` in order to match what you configured in the Business Service Settings in the IRIS production. 
 
 Your folders will look like this (Don't worry if the top-level name is more detailed than `FHIR-UDS-TRAINING`): 
 
@@ -161,13 +156,13 @@ Your folders will look like this (Don't worry if the top-level name is more deta
 
 You will see the file copied into the directory and then it may disappear. This is good news. The inbound file service running in IRIS has picked it up and attempted to process it. 
 
-9. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile for the `_System` user in the right corner. Once you click on the icon, select **Management Portal** to retrn **Home**.  
+9. **Check the Production:** Return to your System Management Portal. If you are looking at the "FHIR Server" screen, you can click on the profile for the `_System` user in the right corner. Once you click on the icon, select **Management Portal** to return **Home**.  
 
 Go to **Home -> Interoperability -> Select FHIRDEMO -> Configure -> Production**. 
 
 Click on the **Messages** tab. You should see the available message traces. Click on the link under **Header** to trace the activity. 
 
-If you see errors, read the error messages, doouble check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again like you did in **Step 8-2**.
+If you see errors, read the error messages, double check settings, and try to fix things so you get a complete message trace (see below). If you ever need to re-run the message, you can re-send from the **Message Viewer** or drop the file again like you did in **Step 8-2**.
 
 10. **Review the Message Trace:**
 
