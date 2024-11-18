@@ -16,5 +16,5 @@ ROUTINE iris
     } Else {
         Write "Error during installation: ", $System.Status.DisplayError(status), !
     }
-   
+    do $system.OBJ.Load("/opt/irisapp/misc/FHIR_CustomProcess_export.xml","cuk")
 halt
