@@ -45,11 +45,22 @@ Follow the model and add these properties:
 * In VSCode, navigate to the `HS.SDA3` package in **FHIRDEMO**. These packages are mapped from **HSLIB** and should be available from any Foundation namespace. 
 * Right click and select **Compile**. This will compile the new version of the `HS.Local.SDA3.PatientExtension` into the package. 
 
-4. Import the HS.SDA3 Schema into the namespace. 
+## Exporting and Importing the Modified SDA Schema
+To ensure that the desired extension properties will be available to you when creating your DTL, you will need to export the XML schema from HSCUSTOM and import it to the desired namespace, as follows:
 
-* In Management Portal: Navigate to **Health > HSDEMO > Schema Documentation** 
+1. In Terminal in the HSCUSTOM namespace, run the following:
 
-* Click the **Import SDA3 Schema** button.
+```bash
+do ##class(HS.SDA3.Container).ExportXMLSchema()
+```
+
+2. You will be prompted to enter the desired filename for the export file. Specify the full path and filename as desired, with an .xsd extension.
+
+3. In the Management Portal, in the namespace where you intend to create a DTL, select **Interoperability > Interoperate > XML > XML Schema Structures**.
+
+4. Select the Import button and navigate to your export file. The exported schema is imported to the desired namespace.
+
+You can now open a DTL transformation and use the extension properties. 
 
 5. If you re-open the DTL you created in the previous exercise, the **Patient** class inside the SDA Container should have the new extensions you added. You may need to re-open the DTL if you had it open all this time. If you don't see the extensions still, repeat the compilation and import steps. 
 

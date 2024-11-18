@@ -99,6 +99,28 @@ Follow the model in the existing class to call the sub-transform. In the example
 
 ![Code block added in Patient Resource DTL](../images/module6-2-custom-patient-DTL.png)
 
+## Code Block - backend
+```bash
+<comment>
+<annotation>CNR: Hardcoding age extension to try things out</annotation>
+</comment>
+<assign value='target.extension.Count()+1' property='extIndex' action='set' />
+<assign value='##class(HS.FHIR.DTL.vR4.Model.Base.Extension).%New()' property='extTemp' action='set' />
+<assign value='aux("transformer").GetDTL(source, "HS.Local.FHIR.DTL.SDA3.vR4.Patient.AgeExtension")' property='DTL' action='set' />
+<if condition='DTL&apos;=""' >
+<true>
+<assign value='$classmethod(DTL,"Transform", source, .extTemp, .aux)' property='status' action='set' />
+<if condition='extTemp&apos;=""' >
+<true>
+<assign value='"http://fhir.org/guides/hrsa/uds-plus/StructureDefinition/uds-plus-age-extension"' property='extTemp.url' action='set' />
+<assign value='extTemp' property='target.extension' action='set' key='extIndex' />
+</true>
+</if>
+</true>
+</if>
+
+```
+
 Save and Compile When done. 
 
 ## Test The Changes
